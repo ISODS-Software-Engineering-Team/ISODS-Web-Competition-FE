@@ -1,0 +1,44 @@
+.goback-button{
+    text-align: center;
+    padding: 40px;
+    margin:auto;
+    margin-bottom: -20px;
+}
+a:link{text-decoration: none}
+a:visited{text-decoration: none}
+a:hover{text-decoration: none}
+a:active{text-decoration: none}
+
+.container-form{
+    text-align: center;
+    border-style:groove;
+    padding:60px;
+    margin:auto;
+    font-family: 'Noto Sans', sans-serif;
+    border-width: -20px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    width: 250px;
+    box-shadow: 10px 5px 5px darkorange;
+}
+.sign-in-header{
+    margin:auto;
+    margin-bottom: 10px;
+    color:darkorange;
+}
+
+.sign-in-button{
+    margin:auto;
+    margin-top: 10px;
+    margin-left: 150px;
+    margin-bottom: -10px;
+}
+
+.forgot-username-password{
+    margin:auto;
+    margin-top: 10px;
+    margin-left: 345px;
+    margin-bottom: -10px;
+}

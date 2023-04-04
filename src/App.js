@@ -1,20 +1,19 @@
-import SignIn from "./Components/SignIn";
+import SignIn from "./Components/Auth/SignIn";
 import './App.css';
 import React from 'react';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
+import './App.css';
 
 function App() {
 
   return (
     <div>
-    <h1> Hello </h1>
-    <SignIn />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/signin" element={SignIn} />
+      <div class="container">
 
-        </Routes>
-      </BrowserRouter>
+        <h1> ISODS </h1>
+      </div>
+      
+      <SignIn />
     </div>
   );
 }
