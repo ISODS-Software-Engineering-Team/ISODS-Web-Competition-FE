@@ -37,8 +37,11 @@ a:active{text-decoration: none}
 }
 
 .forgot-username-password{
-    margin:auto;
+    margin: auto;
     margin-top: 10px;
-    margin-left: 345px;
+    /* full page: 760px */
+    /* some other might change */
+    /* Gotta change it to responsive website */
+    margin-left: 760px; 
     margin-bottom: -10px;
 }

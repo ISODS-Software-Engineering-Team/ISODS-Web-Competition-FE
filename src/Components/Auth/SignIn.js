@@ -7,10 +7,8 @@ import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 
 function SignIn() {
-    const color = red[400]
 
     return (
-
         <div>
             <div class='goback-button'>
                 <Link href="#" variant="body2">
