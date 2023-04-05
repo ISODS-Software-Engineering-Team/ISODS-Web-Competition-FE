@@ -24,15 +24,18 @@ function UserSignIn() {
 
     function submitLogin(e) {
         e.preventDefault();
-        
-        const response = client.post(
+        client.post(
             "/api/login",
             {
                 email: email,
                 password: password
             }
-        ).then(function (res) {
+        ).then((res) => {
             setCurrentUser(true);
+            if (res.data) {
+                localStorage.setItem("User", JSON.stringify(res.data));
+            }
+            return res.data;
         });
     }
 
