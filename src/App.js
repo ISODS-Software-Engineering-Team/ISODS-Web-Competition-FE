@@ -1,4 +1,4 @@
-import SignIn from "./Components/Auth/SignIn";
+import UserSignIn from "./Components/Auth/UserSignIn";
 import './App.css';
 import * as React from 'react';
 import {Route, BrowserRouter, Routes} from "react-router-dom";
@@ -10,7 +10,7 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/signin' element={<SignIn />}/>
+          <Route path='/signin' element={<UserSignIn />}/>
         </Routes>
       </BrowserRouter>
     </div>
