@@ -1,4 +1,5 @@
 import './UserSignIn.css';
+import AuthService from '../services/Auth.server';
 import { Button } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
@@ -12,36 +13,33 @@ axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 
-const client = axios.create({
-    baseURL: "http://localhost:8000"
-});
 
 function UserSignIn() {
+    // useNavigate() to redirect when user logged in
     let navigate = useNavigate();
+    // a bunch of useState() for user to logged in.
     const [currentUser, setCurrentUser] = useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
 
-    function submitLogin(e) {
+    
+    const submitLogin = async (e) => {
         e.preventDefault();
-        client.post(
-            "/api/login",
-            {
-                email: email,
-                password: password
-            }
-        ).then((res) => {
-            setCurrentUser(true);
-            if (res.data) {
-                localStorage.setItem("User", JSON.stringify(res.data));
-            }
-            return res.data;
-        });
+        try {
+            await AuthService.login(email, password)
+                .then(() => {
+                    setCurrentUser(true);
+                });
+        } catch (e) {
+            setMessage('Wrong Email or password!')
+        }
     }
 
 
     if (currentUser) {
-        navigate('/')
+        navigate('/');
+        window.location.reload();
     }
     return (
         <div>
@@ -79,6 +77,9 @@ function UserSignIn() {
                                     Submit
                                 </Button>
                             </div>
+                            {message && (
+                                <p className="error"> {message} </p>
+                            )}
                             <div className='forgot-username-password'>
                                 <Grid container>
                                     <Grid item xs>
