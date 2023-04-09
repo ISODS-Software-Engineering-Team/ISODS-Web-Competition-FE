@@ -1,6 +1,6 @@
 import './UserSignIn.css';
 import AuthService from '../services/Auth.server';
-import { Button } from '@mui/material';
+import { Button, Box } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
@@ -36,65 +36,80 @@ function UserSignIn() {
         }
     }
 
-
     if (currentUser) {
         navigate('/');
         window.location.reload();
     }
     return (
-        <div>
-            <div className="container">
-                <h1> ISODS </h1>
-            </div>
-
-            <div className="container">
-                <div className="goback-button">
-                    <a href="/"> « back</a>
+        <div className="container">
+            <div className="container-form">
+                <img src="https://www.isods.org//images/isods_small_logo.png" alt="Profile Picture" id="profile-picture" />
+                <div className="sign-in-header">
+                    SIGN IN
                 </div>
-                <div className="container-form">
-                    <div className="sign-in-header">
-                        Sign In
-                    </div>
-                    <Navbar bg="dark" variant="dark">
-                        <Form onSubmit={e => submitLogin(e)}>
-                            <div className="email-field">
+                <Navbar bg="dark" variant="dark">
+                    <Form onSubmit={e => submitLogin(e)}>
+                        <div className="email-field">
+                            <Box sx={{
+                                borderRadius: 1,
+                                padding: '2px 6px',
+                                boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.25)',
+                                width: '100%',
+                            }}>
                                 <TextField
                                     id="email"
                                     label="Username/email"
                                     value={email}
                                     onChange={e => setEmail(e.target.value)}
+                                    fullWidth
+                                    sx={{ '& fieldset': { borderColor: 'transparent' } }}
+                                    underline={false}
                                 />
-                            </div>
+                            </Box>
+                        </div>
+                        <Box sx={{
+                            borderRadius: 1,
+                            padding: '2px 6px',
+                            boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.25)',
+                            marginTop: '1rem',
+                        }}>
                             <TextField
                                 id="password"
                                 label="Password"
                                 value={password}
                                 onChange={e => setPassword(e.target.value)}
                                 type="password"
+                                fullWidth
+                                sx={{ '& fieldset': { borderColor: 'transparent' } }}
+                                underline={false}
                             />
-                            <div className='sign-in-button'>
-                                <Button variant="primary" type="submit">
-                                    Submit
-                                </Button>
-                            </div>
-                            {message && (
-                                <p className="error"> {message} </p>
-                            )}
-                            <div className='forgot-username-password'>
-                                <Grid container>
-                                    <Grid item xs>
-                                        <Link href="#" variant="body2">
-                                            Forgot Username / Password?
-                                        </Link>
-                                    </Grid>
+                        </Box>
+                        <div className='sign-in-button'>
+                            <Button variant="contained" type="submit">
+                                Submit
+                            </Button>
+                        </div>
+                        {message && (
+                            <p className="error"> {message} </p>
+                        )}
+                        <div className='forgot-username-password'>
+                            <Grid container>
+                                <Grid item xs>
+                                    <Link href="./forgot" variant="body2">
+                                        Forgot Username / Password?
+                                    </Link>
                                 </Grid>
-                            </div>
-                        </Form>
-                    </Navbar>
-                </div>
-            </div >
-        </div >
+                            </Grid>
+                        </div>
+                    </Form>
+                </Navbar>
+            </div>
+            <div className="goback-button">
+                <a href="/"> « BACK</a>
+            </div>
+        </div>
     );
 }
 
-export default UserSignIn
+
+export default UserSignIn;
