@@ -1,5 +1,6 @@
 import './UserSignIn.css';
-import { Button } from '@mui/material';
+import AuthService from '../services/Auth.server';
+import { Button, Box } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
@@ -17,7 +18,9 @@ function ForgotPassword() {
     const [email, setEmail] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [message, setMessage] = useState('');
-  
+
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
@@ -39,29 +42,32 @@ function ForgotPassword() {
     return (
         <div>
             <div className="container">
-                <h1> ISODS </h1>
-            </div>
-
-            <div className="container">
-                <div className="goback-button">
-                    <a href="/signin"> « back</a>
-                </div>
                 <div className="container-form">
+                    <img src="https://www.isods.org//images/isods_small_logo.png" alt="Profile Picture" id="profile-picture" />
                     <div className="sign-in-header">
-                        Forgot Password
+                        RESET PASSWORD
                     </div>
                     <Navbar bg="dark" variant="dark">
                         <Form onSubmit={handleSubmit}>
-                            <div className="email-field">
-                                <TextField
-                                    id="email"
-                                    label="Username/email"
-                                    value={email}
-                                    onChange={e => setEmail(e.target.value)}
-                                    required
-                                />
-                            </div>
-                    
+                            <Box sx={{
+                                borderRadius: 1,
+                                padding: '2px 6px',
+                                boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.25)',
+                                width: '100%',
+                            }}>
+                                <div className="email-field">
+                                    <TextField
+                                        id="email"
+                                        label="Username/email"
+                                        value={email}
+                                        onChange={e => setEmail(e.target.value)}
+                                        required
+                                        fullWidth
+                                        sx={{ '& fieldset': { borderColor: 'transparent' }}}
+                                        underline={false}
+                                    />
+                                </div>
+                            </Box>
                             <div className='sign-in-button'>
                                 <Button variant="primary" type="submit" disabled={submitting}>
                                     Submit
@@ -73,8 +79,11 @@ function ForgotPassword() {
                         </Form>
                     </Navbar>
                 </div>
-            </div >
-        </div >
+                <div className="goback-button">
+                    <a href="/signin"> « BACK</a>
+                </div>
+            </div>
+        </div>
     );
 }
 
