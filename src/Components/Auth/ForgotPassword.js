@@ -20,15 +20,19 @@ function ForgotPassword() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        AuthService.requestEmail(email)
-            .then(() => {
-                setMessage('Email sent successfully.');
-                setSubmitting(false);
-            })
-            .catch(() => {
-                setMessage('Email not found.');
-                setSubmitting(false);
-            })
+        axios.post(API_URL_USERS + "/reset_password/", {email: email}, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(() => {
+            setMessage('Email sent successfully.');
+            setSubmitting(false);
+        })
+        .catch(() => {
+            setMessage('Email not found.');
+            setSubmitting(false);
+        })
     };
 
 
