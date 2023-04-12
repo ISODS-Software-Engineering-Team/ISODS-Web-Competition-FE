@@ -1,16 +1,10 @@
 import './UserSignIn.css';
-import AuthService from '../services/Auth.server';
+import authService from '../services/Auth.server';
 import { Button, Box } from '@mui/material';
-import axios from 'axios';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import TextField from '@mui/material/TextField';
-
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-axios.defaults.withCredentials = true;
-axios.defaults.headers = 'application/json';
 
 function ForgotPassword() {
     const [email, setEmail] = useState("");
@@ -20,11 +14,7 @@ function ForgotPassword() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        axios.post(`${API_URL_USERS}/reset_password/`, {email: email}, {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })        
+        authService.requestEmail(email)
         .then(() => {
             setMessage('Email sent successfully.');
             setSubmitting(false);
