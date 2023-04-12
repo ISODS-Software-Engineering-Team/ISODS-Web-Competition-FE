@@ -20,7 +20,7 @@ const login = (email, password) => {
 }
 
 const requestEmail = (email) => {
-    return axios.post(`${API_URL_USERS}/reset_password/?email=${email}`)
+    return axios.post(`${API_URL_USERS}/reset_password/`)
         .then(response => {
             return response.data;
         })
