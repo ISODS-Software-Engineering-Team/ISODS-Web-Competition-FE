@@ -52,7 +52,7 @@ function ForgotPassword() {
                                 </div>
                             </Box>
                             <div className='sign-in-button'>
-                                <Button variant="primary" type="submit" disabled={submitting}>
+                                <Button variant="contained" type="submit">
                                     Submit
                                 </Button>
                             </div>
