@@ -1,43 +1,26 @@
 import './UserSignIn.css';
-import AuthService from '../services/Auth.server';
+import authService from '../services/Auth.server';
 import { Button, Box } from '@mui/material';
-import axios from 'axios';
 import { useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import Form from 'react-bootstrap/Form';
-import { useNavigate } from "react-router-dom";
 import TextField from '@mui/material/TextField';
-
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-axios.defaults.withCredentials = true;
 
 function ForgotPassword() {
     const [email, setEmail] = useState("");
     const [submitting, setSubmitting] = useState(false);
     const [message, setMessage] = useState('');
 
-    const navigate = useNavigate();
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setSubmitting(true);
-        axios.get('/resetpassword', {
-            params: {
-                email: email
-            }
-        })
-        .then(() => {
-            setMessage('Email sent successfully.');
-            setSubmitting(false);
-        })
+        authService.requestEmail(email)
         .catch(() => {
-            setMessage('Email not found.');
+            setMessage('If you have an account with us, a link to reset your password will be sent to your email.');
             setSubmitting(false);
         })
     };
+
 
     return (
         <div>
@@ -63,13 +46,13 @@ function ForgotPassword() {
                                         onChange={e => setEmail(e.target.value)}
                                         required
                                         fullWidth
-                                        sx={{ '& fieldset': { borderColor: 'transparent' }}}
+                                        sx={{ '& fieldset': { borderColor: 'transparent' } }}
                                         underline={false}
                                     />
                                 </div>
                             </Box>
                             <div className='sign-in-button'>
-                                <Button variant="primary" type="submit" disabled={submitting}>
+                                <Button variant="contained" type="submit">
                                     Submit
                                 </Button>
                             </div>
