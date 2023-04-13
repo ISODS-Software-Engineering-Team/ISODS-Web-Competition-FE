@@ -20,15 +20,10 @@ const login = (email, password) => {
 }
 
 const requestEmail = (email) => {
-    return axios.post(`${API_URL_USERS}/reset_password/`)
-        .then(response => {
-            return response.data;
-        })
-        .catch(error => {
-            console.log(error);
-            throw error;
-        });
-}
+    return axios.post(`${API_URL_USERS}/reset_password/`, {
+      email: email,
+    });
+};  
 
 const logout = () => {
     localStorage.removeItem("User");

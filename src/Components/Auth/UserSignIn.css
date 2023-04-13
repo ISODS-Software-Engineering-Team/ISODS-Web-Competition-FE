@@ -17,9 +17,10 @@
     padding: 2rem;
     margin-top: 50px;
     border-radius: 50px;
+    border-radius: 50px;
     background: #ffffff;
-    box-shadow:  24px 24px 36px #ababab,
-                 -24px -24px 36px #ffffff;
+    box-shadow:  5px 5px 13px #e3e3e3,
+                 -5px -5px 13px #ffffff;
     height: 600px;
     text-align: center;
   }
