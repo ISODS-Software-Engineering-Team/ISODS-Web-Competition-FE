@@ -29,6 +29,12 @@ const logout = () => {
     localStorage.removeItem("User");
 }
 
+const resetPasswordConfirm = (uid, token, new_password, re_new_password) => {
+    return axios.post(`${API_URL_USERS}/reset_password_confirm/`, {
+        uid,
+    });
+}
+
 const authService = {
     login,
     requestEmail,
