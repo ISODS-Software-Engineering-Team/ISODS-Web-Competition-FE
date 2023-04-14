@@ -1,4 +1,6 @@
 import './UserSignIn.css';
+import AuthService from '../services/Auth.server';
+import { useState } from 'react';
 import { Button, Box } from '@mui/material';
 import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
@@ -10,7 +12,15 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 function ResetPassword() {
 
+    // create const useState for message and new_password
+    const [message, setMessage] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [retypeNewPassword, setRetypeNewPassword] = useState('');
 
+    const submitNewPassword = async (e) => {
+        e.preventDefault();
+        await AuthService.resetPasswordConfirm(newPassword, setNewPassword);
+    }
 
     return (
         <div className="container">
@@ -20,7 +30,7 @@ function ResetPassword() {
                     Password
                 </div>
                 <Navbar bg="dark" variant="dark">
-                    <Form >
+                    <Form onSubmit={ e => submitNewPassword(e)}>
                         <div className="email-field">
                             <Box sx={{
                                 borderRadius: 1,
@@ -31,6 +41,8 @@ function ResetPassword() {
                                 <TextField
                                     id="new-password"
                                     label="New Passsword"
+                                    value={newPassword}
+                                    onChange={e => setNewPassword(e.target.vaue)}
                                     fullWidth
                                     sx={{ '& fieldset': { borderColor: 'transparent' } }}
                                     // underline={false}
@@ -47,6 +59,8 @@ function ResetPassword() {
                                 id="re-password"
                                 label="Re-type Password"
                                 type="password"
+                                value={retypeNewPassword}
+                                onChange={e => setRetypeNewPassword(e.target.vaue)}
                                 fullWidth
                                 sx={{ '& fieldset': { borderColor: 'transparent' } }}
                                 // underline={false}
