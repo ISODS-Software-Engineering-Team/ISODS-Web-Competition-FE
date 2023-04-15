@@ -6,6 +6,7 @@ import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import TextField from '@mui/material/TextField';
+import { useParams } from 'react-router-dom';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
@@ -17,9 +18,12 @@ function ResetPassword() {
     const [newPassword, setNewPassword] = useState('');
     const [retypeNewPassword, setRetypeNewPassword] = useState('');
 
-    const submitNewPassword = async (e) => {
+    const { uid, token } = useParams();
+
+    const submitNewPassword = (e) => {
         e.preventDefault();
-        await AuthService.resetPasswordConfirm(newPassword, setNewPassword);
+
+        AuthService.resetPasswordConfirm(uid, token, newPassword, retypeNewPassword);
     }
 
     return (
@@ -30,7 +34,7 @@ function ResetPassword() {
                     Password
                 </div>
                 <Navbar bg="dark" variant="dark">
-                    <Form onSubmit={ e => submitNewPassword(e)}>
+                    <Form onSubmit={e => submitNewPassword(e)}>
                         <div className="email-field">
                             <Box sx={{
                                 borderRadius: 1,
@@ -45,7 +49,7 @@ function ResetPassword() {
                                     onChange={e => setNewPassword(e.target.vaue)}
                                     fullWidth
                                     sx={{ '& fieldset': { borderColor: 'transparent' } }}
-                                    // underline={false}
+                                // underline={false}
                                 />
                             </Box>
                         </div>
@@ -63,7 +67,7 @@ function ResetPassword() {
                                 onChange={e => setRetypeNewPassword(e.target.vaue)}
                                 fullWidth
                                 sx={{ '& fieldset': { borderColor: 'transparent' } }}
-                                // underline={false}
+                            // underline={false}
                             />
                         </Box>
                         <div className='sign-in-button'>

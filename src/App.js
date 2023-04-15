@@ -11,9 +11,9 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path='/signin' element={<UserSignIn />} />
-          <Route path='/forgot' element={<ForgotPassword />} />
-          <Route path='/resetpassword' element ={<ResetPassword />}/>
+          <Route exact path='/signin' element={<UserSignIn />} />
+          <Route exact path='/forgot' element={<ForgotPassword />} />
+          <Route exact path='/password/reset/confirm/:uid/:token' element={<ResetPassword />} />
         </Routes>
       </BrowserRouter>
     </div>
