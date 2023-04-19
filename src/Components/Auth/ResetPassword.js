@@ -6,26 +6,35 @@ import axios from 'axios';
 import Navbar from 'react-bootstrap/Navbar';
 import Form from 'react-bootstrap/Form';
 import TextField from '@mui/material/TextField';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 axios.defaults.withCredentials = true;
 function ResetPassword() {
 
+    let navigate = useNavigate();
     // create const useState for message and new_password
     const [message, setMessage] = useState('');
     const [new_password, setNewPassword] = useState('');
     const [retypeNewPassword, setRetypeNewPassword] = useState('');
+    const [submitting, setSubmitting] = useState(false);
 
     const { uid, token } = useParams();
 
     const submitNewPassword = (e) => {
         e.preventDefault();
-
-        AuthService.resetPasswordConfirm(uid, token, new_password, retypeNewPassword);
-    }
-
+            setSubmitting(true);
+            AuthService.resetPasswordConfirm(uid, token, new_password, retypeNewPassword)
+            .then(() => {
+                // this does not reached
+                setMessage('Password has been changed! Please log-in with new password');
+                setSubmitting(false);
+            }).then(() => {
+                // so far after reset, it will return to sign in page.
+                navigate('/signin')
+            })
+        }
     
     return (
         <div className="container">
