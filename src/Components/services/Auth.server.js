@@ -37,7 +37,7 @@ const resetPasswordConfirm = (uid, token, new_password, re_new_password) => {
         }
     }
     const body = JSON.stringify({uid, token, new_password, re_new_password});
-    return axios.post(`${API_URL_USERS}/reset_password_confirm/`, body);
+    return axios.post(`${API_URL_USERS}/reset_password_confirm/`, body, config);
 }
 
 const authService = {

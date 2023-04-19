@@ -15,7 +15,7 @@ function ResetPassword() {
 
     // create const useState for message and new_password
     const [message, setMessage] = useState('');
-    const [newPassword, setNewPassword] = useState('');
+    const [new_password, setNewPassword] = useState('');
     const [retypeNewPassword, setRetypeNewPassword] = useState('');
 
     const { uid, token } = useParams();
@@ -23,9 +23,10 @@ function ResetPassword() {
     const submitNewPassword = (e) => {
         e.preventDefault();
 
-        AuthService.resetPasswordConfirm(uid, token, newPassword, retypeNewPassword);
+        AuthService.resetPasswordConfirm(uid, token, new_password, retypeNewPassword);
     }
 
+    
     return (
         <div className="container">
             <div className="container-form">
@@ -43,10 +44,11 @@ function ResetPassword() {
                                 width: '100%',
                             }}>
                                 <TextField
-                                    id="new-password"
+                                    id="new_password"
                                     label="New Passsword"
-                                    value={newPassword}
-                                    onChange={e => setNewPassword(e.target.vaue)}
+                                    type="password"
+                                    value={new_password}
+                                    onChange={e => setNewPassword(e.target.value)}
                                     fullWidth
                                     sx={{ '& fieldset': { borderColor: 'transparent' } }}
                                 // underline={false}
@@ -60,11 +62,11 @@ function ResetPassword() {
                             marginTop: '1rem',
                         }}>
                             <TextField
-                                id="re-password"
+                                id="re_new_password"
                                 label="Re-type Password"
                                 type="password"
                                 value={retypeNewPassword}
-                                onChange={e => setRetypeNewPassword(e.target.vaue)}
+                                onChange={e => setRetypeNewPassword(e.target.value)}
                                 fullWidth
                                 sx={{ '& fieldset': { borderColor: 'transparent' } }}
                             // underline={false}
