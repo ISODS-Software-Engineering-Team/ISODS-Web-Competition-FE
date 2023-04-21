@@ -30,7 +30,7 @@ const logout = () => {
 }
 
 const signup = (firstName, lastName, email, username, password) => {
-    return axios.post(`${API_URL_USERS}/register`, {
+    return axios.post(`${API_URL_USERS}/`, {
         first_name: firstName,
         last_name: lastName,
         email,
@@ -38,6 +38,9 @@ const signup = (firstName, lastName, email, username, password) => {
         password,
         re_password: password,
     }).then(response => {
+        if (response.status === 201) {
+            alert("Please check your email for an activation link.");
+        }
         if (response.data.access_token) {
             localStorage.setItem("User", JSON.stringify(response.data.access_token));
         }
