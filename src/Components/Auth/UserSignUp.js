@@ -30,18 +30,19 @@ function UserSignUp() {
     const submitSignUp = async (e) => {
         e.preventDefault();
         if (password !== password2) {
-            setMessage('Passwords do not match');
-            return;
+          setMessage('Passwords do not match');
+          return;
+        } else if (password.length < 8 || !/\W/.test(password)) {
+          setMessage('Password should have a minimum of 8 characters and at least one special symbol.');
+          return;
         }
         try {
-            await AuthService.signup(firstName, lastName, email, username, password)
-                .then(() => {
-                    setCurrentUser(true);
-                });
+          await AuthService.signup(firstName, lastName, email, username, password)
+          setCurrentUser(true);
         } catch (e) {
-            setMessage('Failed to sign up');
+          setMessage('Failed to sign up');
         }
-    }
+      }
 
     if (currentUser) {
         navigate('/');
@@ -188,6 +189,8 @@ function UserSignUp() {
                             <Button variant="contained" type="submit">
                                 Sign Up
                             </Button>
+                            <br></br>
+                            {message && <span style={{ color: 'red' }}>{message}</span>}
                         </div>
                         <div className="already-have-account">
                             <Grid container className="link-container">
