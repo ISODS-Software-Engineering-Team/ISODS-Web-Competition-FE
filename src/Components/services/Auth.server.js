@@ -29,7 +29,6 @@ const logout = () => {
     localStorage.removeItem("User");
 }
 
-
 const resetPasswordConfirm = (uid, token, new_password, re_new_password) => {
     const config = {
         headers: {
@@ -40,11 +39,22 @@ const resetPasswordConfirm = (uid, token, new_password, re_new_password) => {
     return axios.post(`${API_URL_USERS}/reset_password_confirm/`, body, config);
 }
 
+const activateAccount = (uid, token) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }
+    const body = JSON.stringify({uid, token});
+    return axios.post(`${API_URL_USERS}/activation/`, body, config);
+}
+
 const authService = {
     login,
     requestEmail,
     logout,
     resetPasswordConfirm,
+    activateAccount,
 };
 
 export default authService;
