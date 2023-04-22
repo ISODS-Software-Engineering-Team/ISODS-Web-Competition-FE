@@ -30,24 +30,27 @@ function UserSignUp() {
     const submitSignUp = async (e) => {
         e.preventDefault();
         if (password !== password2) {
-          setMessage('Passwords do not match');
-          return;
+            setMessage('Passwords do not match');
+            return;
         } else if (password.length < 8 || !/\W/.test(password)) {
-          setMessage('Password should have a minimum of 8 characters and at least one special symbol.');
-          return;
+            setMessage('Password should have a minimum of 8 characters and at least one special symbol.');
+            return;
         }
         try {
-          await AuthService.signup(firstName, lastName, email, username, password)
-          setCurrentUser(true);
+            await AuthService.signup(firstName, lastName, email, username, password);
+            setCurrentUser(true);
         } catch (e) {
-          setMessage('Failed to sign up');
+            if (e.response && e.response.status === 400) {
+                setMessage('Account already exists');
+            } else {
+                setMessage('Failed to sign up');
+            }
         }
-      }
-
-    if (currentUser) {
-        navigate('/');
-        window.location.reload();
-    }
+        if (currentUser) {
+            navigate('/');
+            window.location.reload();
+        }
+    };
 
     return (
         <div className="container">

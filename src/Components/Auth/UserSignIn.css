@@ -96,3 +96,7 @@
     justify-content: center;
   }
   
+  .error-message {
+    color: red;
+    margin-top: 0.5rem;
+}
