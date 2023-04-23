@@ -98,6 +98,10 @@ function UserSignIn() {
                                     <Link href="./forgot" variant="body2">
                                         Forgot Username / Password?
                                     </Link>
+                                    <br></br>
+                                    <Link href="./signup" variant="body2">
+                                        Sign-Up
+                                    </Link>
                                 </Grid>
                             </Grid>
                         </div>

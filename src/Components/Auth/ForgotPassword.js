@@ -15,7 +15,7 @@ function ForgotPassword() {
         e.preventDefault();
         setSubmitting(true);
         authService.requestEmail(email)
-        .catch(() => {
+        .then(() => {
             setMessage('If you have an account with us, a link to reset your password will be sent to your email.');
             setSubmitting(false);
         })
