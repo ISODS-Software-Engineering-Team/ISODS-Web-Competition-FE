@@ -21,7 +21,7 @@
     background: #ffffff;
     box-shadow:  5px 5px 13px #e3e3e3,
                  -5px -5px 13px #ffffff;
-    height: 600px;
+    height: 800px;
     text-align: center;
   }
 
@@ -43,14 +43,11 @@
     text-align: center;
   }
   
-  .email-field {
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
   .sign-in-button {
+    margin-top: 1rem;
+  }
+
+  .sign-up-button {
     margin-top: 1rem;
   }
   
@@ -92,3 +89,14 @@
   .goback-button {
     margin-top: 20px;
   }
+
+  .link-container {
+    display: flex;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 1rem;
+}
