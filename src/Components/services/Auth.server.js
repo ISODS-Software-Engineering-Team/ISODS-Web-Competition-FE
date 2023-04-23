@@ -6,6 +6,7 @@ axios.defaults.withCredentials = true;
 
 const API_URL_USERS = "http://localhost:8000/auth/users";
 const API_URL_LOGIN = "http://localhost:8000/auth/jwt";
+const API_URL_ACTIVATION = 'http://localhost:8000/auth/users/activation/';
 
 const login = (email, password) => {
     return axios.post(`${API_URL_LOGIN}/create`, {
@@ -48,19 +49,37 @@ const signup = (firstName, lastName, email, username, password) => {
         password,
         re_password: password,
     })
-    .then(response => {
-        if (response.status === 201) {
-            console.log('Please check your email for activation link!');
-            // Or call a setMessage function here to display the message
-        }
-        return response.data;
-    })
-    .catch(error => {
-        console.error('Error signing up:', error);
-        // Or call a setMessage function here to display the error message
-        throw error;
-    });
+        .then(response => {
+            if (response.status === 201) {
+                console.log('Please check your email for activation link!');
+                // Or call a setMessage function here to display the message
+            }
+            return response.data;
+        })
+        .catch(error => {
+            console.error('Error signing up:', error);
+            // Or call a setMessage function here to display the error message
+            throw error;
+        });
 };
+
+import axios from 'axios';
+
+const activateUser = (uid, token) => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+    const body = JSON.stringify({ uid, token });
+    return axios.post(API_URL_ACTIVATION, body, config)
+        .then(response => response.data)
+        .catch(error => {
+            console.error('Error activating user:', error);
+            throw error;
+        });
+};
+
 
 const authService = {
     login,
@@ -68,6 +87,7 @@ const authService = {
     logout,
     resetPasswordConfirm,
     signup,
+    activateUser,
 };
 
 export default authService;
