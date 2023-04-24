@@ -6,6 +6,7 @@ import * as React from 'react';
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import './App.css';
 import ResetPassword from "./Components/Auth/ResetPassword";
+import ActivateAccount from "./Components/Auth/ActivateAccount";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/forgot' element={<ForgotPassword />} />
           <Route exact path='/signup' element={<UserSignUp />} />
           <Route exact path='/password/reset/confirm/:uid/:token' element={<ResetPassword />} />
+          <Route exact path='/activate/:uid/:token' element={<ActivateAccount />} />
         </Routes>
       </BrowserRouter>
     </div>
