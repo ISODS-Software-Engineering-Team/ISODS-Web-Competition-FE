@@ -1,0 +1,38 @@
+.container-comp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.container-form-comp {
+    width: 600px;
+    max-width: 700px;
+    height: 1px;
+    padding: 2rem;
+    margin-top: 30px;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow:  5px 5px 13px #e3e3e3,
+                 -5px -5px 13px #ffffff;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.Add-Comp-Button{
+    margin-right: 600px;
+}
+
+.container-comp-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow:  5px 5px 13px #e3e3e3,
+                 -5px -5px 13px #ffffff;
+    max-width: 700px;
+    width: 2000px;
+}
