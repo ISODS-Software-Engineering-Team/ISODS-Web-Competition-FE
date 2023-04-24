@@ -63,8 +63,6 @@ const signup = (firstName, lastName, email, username, password) => {
         });
 };
 
-import axios from 'axios';
-
 const activateUser = (uid, token) => {
     const config = {
         headers: {
