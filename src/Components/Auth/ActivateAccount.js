@@ -25,9 +25,7 @@ function ActivateAccount() {
             await AuthService.activateUser(uid, token);
             setCurrentUser(true);
             setMessage('Your account has been successfully activated!');
-            setTimeout(() => {
-                navigate('/signin');
-            }, 4000);
+            navigate('/signin');
         } catch (e) {
             setMessage('Activation failed!');
         }
