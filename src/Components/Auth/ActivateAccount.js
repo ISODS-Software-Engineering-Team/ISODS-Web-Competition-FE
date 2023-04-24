@@ -24,15 +24,14 @@ function ActivateAccount() {
         try {
             await AuthService.activateUser(uid, token);
             setCurrentUser(true);
+            setMessage('Your account has been successfully activated!');
+            setTimeout(() => {
+                navigate('/signin');
+            }, 4000);
         } catch (e) {
             setMessage('Activation failed!');
         }
     };
-
-    if (currentUser) {
-        navigate('/');
-        window.location.reload();
-    }
 
     return (
         <div className='container'>
@@ -46,7 +45,7 @@ function ActivateAccount() {
                                 Click here to activate your account
                             </Link>
                         </div>
-                        {message && <p className='error'>{message}</p>}
+                        {message && <p className='success'>{message}</p>}
                         <div className='back-to-login'>
                             <Grid container>
                                 <Grid item xs>
