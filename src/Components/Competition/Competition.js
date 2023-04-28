@@ -1,35 +1,41 @@
-import React from 'react'
-import './Competition.css';
-import Fab from '@mui/material/Fab';
-import AddIcon from '@mui/icons-material/Add';
+import React, { useState } from 'react';
+import {
+    FaTh,
+    FaBars,
+    FaUserAlt,
+    FaRegChartBar,
+    FaCommentAlt,
+    FaShoppingBag,
+    FaThList
+} from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
+import "./Competition.css";
+import CompetitionData from "./CompetitionData";
 
-
-function Competition() {
-
+const Competition = ({children}) => {
+    const [isOpen ,setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div className='container-comp'>
-
-                <div className='container-form-comp'>
-                    Search
+        <div className="container">
+            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+                <div className="top_section">
+                    <h1 style={{display: isOpen ? "block" : "none", "color" : "orange"}} className="logo">ISODS</h1>
+                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+                        <div className="bars-bg" />
+                        <FaBars onClick={toggle}/>
+                    </div>
                 </div>
-                <p2 className=""> ISODS </p2>
-                <div className='Add-Comp-Button'>
-                    <Fab size="small" color="primary" aria-label="add">
-                        <AddIcon />
-                    </Fab>
-                </div>
-                <div className='container-form-comp'>
-                    Search Bar Competition
-                </div>
-
-                <div className='container-comp-2'>
-                    Competitions
-                </div>
+                {CompetitionData.map((item, index) => (
+                    <NavLink to={item.path} key={index} className="link" activeClassName="active">
+                        <div className="icon">{item.icon}</div>
+                        <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                    </NavLink>
+                ))}
             </div>
-
+            <main>{children}</main>
+        </div>
     );
-}
+};
 
 export default Competition;
-
