@@ -144,7 +144,7 @@
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    width: 70%;
+    width: 65%;
     margin-bottom: 1rem;
     z-index: 999;
 }
@@ -230,6 +230,7 @@
     /* align vertically */
     box-shadow: 5px 5px 13px #e3e3e3, -5px -5px 13px #ffffff;
     padding: 10px;
+    margin-bottom: 2rem;
   }
   
   .card {
@@ -242,6 +243,12 @@
   @media screen and (max-width: 768px) {
     .card-container {
       grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .card-container {
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 
