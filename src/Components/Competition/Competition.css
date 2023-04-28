@@ -1,104 +1,251 @@
+.comp-header {
+    display: flex;
+    align-items: center;
+  }
+
+.comp-info {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+
+
 .comp-auth-buttons-container {
     display: flex;
     justify-content: flex-end;
-    z-index: 9999;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-  
-  .comp-login-button {
-    margin-right: 10px;
-  }
-  
-  .comp-login-button,
-  .comp-signup-button {
+    z-index: 999;
+}
+
+.comp-auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.comp-login-button,
+.comp-signup-button {
     padding: 20px;
     border: none;
     border-radius: 30px;
     cursor: pointer;
     font-weight: bold;
-  }
-  
-  .comp-login-button {
+}
+
+.comp-login-button {
     background-color: #fff;
     color: #ff8400;
-  }
-  
-  .comp-signup-button {
+}
+
+.comp-signup-button {
     background-color: #ff7b00;
     color: #fff;
-  }
-  
-  .comp-login-button:hover {
+}
+
+.comp-login-button:hover {
     background-color: #e4e4e4;
     color: #ff7b00;
-  }
-  
-  .comp-signup-button:hover {
+}
+
+.comp-signup-button:hover {
     background-color: #da6a01;
-  }
-  
-  .search-bar {
-    position: absolute;
-    top: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-  }
-  
-  .search-bar input[type='text'] {
+}
+
+/* add this rule to align buttons to the top right */
+.comp-auth-buttons {
+    margin-left: auto;
+}
+
+.search-bar {
+    display: flex;
+    width: 80%;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Add this line to make the search-icon position relative to the search-bar */
+}
+
+
+.search-bar input[type='text'] {
     padding: 10px;
     border: none;
     border-radius: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 30px;
-  }
-  
-  @media only screen and (max-width: 1000px) {
+}
+
+
+@media only screen and (max-width: 1000px) {
     .search-bar {
-      width: 35%;
+        width: 35%;
     }
-  }
-  
-  @media only screen and (max-width: 760px) {
+}
+
+@media only screen and (max-width: 760px) {
     .search-bar {
-      display: none;
+        display: none;
     }
-  }
-  
-  .search-bar-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 30px;
-  }
-  
-  .search-icon {
-    position: absolute;
+}
+
+.search-bar-container {
+    position: relative;
     top: 0;
-    right: 0;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 10px;
-    color: #555;
-  }
-  
-  .search-icon:hover {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    width: 50%;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+
+.search-icon {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /* Add this line to make the search icon clickable */
+}
+
+.search-icon:hover {
     color: #333;
+}
+
+.comp-info {
+    margin-top: 1rem;
+}
+
+.comp-paragraph {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+    .search-bar {
+        width: 35%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .search-bar {
+        display: none;
+    }
+}
+
+.competition-search {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    margin-bottom: 1rem;
+    z-index: 999;
+}
+
+.competition-search input[type='text'] {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.competition-search input[type='text']::placeholder {
+    color: #b8b8b8;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px) {
+    .competition-search {
+        width: 35%;
+    }
+}
+
+.active-competition-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.active-competition-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.active-competition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.active-competition-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.active-competition-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.active-competition-card-info {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    margin-top: 2rem;
+    margin: 0 auto;
+    /* align center horizontally */
+    width: 80%;
+    justify-items: center;
+    /* align horizontally */
+    align-items: center;
+    /* align vertically */
+    box-shadow: 5px 5px 13px #e3e3e3, -5px -5px 13px #ffffff;
+    padding: 10px;
   }
   
-  .comp-info {
-    margin-top: 30px;
-    margin-left: 10%;
+  .card {
+    border-radius: 10px;
+    border: 1px solid rgb(199, 199, 199);
+    padding: 10px;
+    margin: 15px;
   }
   
-  .comp-info h1 {
-    font-size: 3rem;
+  @media screen and (max-width: 768px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  
+img {
+    width: 70%;
+}
   
