@@ -1,0 +1,41 @@
+.comp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  
+  .comp-auth-buttons-container {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  
+  .comp-login-button {
+    margin-right: 10px;
+  }
+  
+  .comp-login-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #ff8400;
+    cursor: pointer;
+  }
+  
+  .comp-signup-button {
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #ff7b00;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .comp-login-button:hover,
+  .comp-signup-button:hover {
+    background-color: #aaa;
+  }
+  

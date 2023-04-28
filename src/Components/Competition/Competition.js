@@ -7,7 +7,13 @@ import './Competition.css';
 const Competition = ({ children }) => {
   return (
     <div>
-      <NavBar data={NavBarData} />
+      <div className="comp-header">
+        <NavBar data={NavBarData} />
+        <div className="comp-auth-buttons-container">
+          <button className="comp-login-button">Sign In</button>
+          <button className="comp-signup-button">Register</button>
+        </div>
+      </div>
       <main>{children}</main>
     </div>
   );

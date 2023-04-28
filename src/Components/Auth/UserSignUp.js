@@ -53,7 +53,7 @@ function UserSignUp() {
     };
 
     return (
-        <div className="container">
+        <div className="auth-container">
             <div className="container-form">
                 <img src="https://www.isods.org//images/isods_small_logo.png" alt="Profile Picture" id="profile-picture" />
                 <div className="sign-in-header">
