@@ -18,13 +18,14 @@ const Competition = ({children}) => {
 
     return (
         <div className="container">
-            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+            <div style={{width: isOpen ? "200px" : "70px", height: "100%", overflow: "auto"}} className="sidebar">
                 <div className="top_section">
-                    <h1 style={{display: isOpen ? "block" : "none", "color" : "orange"}} className="logo">ISODS</h1>
-                    <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+                    <div style={{marginLeft: isOpen ? "8px" : "8px"}} className="bars">
                         <div className="bars-bg" />
                         <FaBars onClick={toggle}/>
                     </div>
+                    <h1 style={{display: isOpen ? "block" : "none", "color" : "orange", "padding-left": "20px"}} className="logo">ISODS</h1>
+
                 </div>
                 {CompetitionData.map((item, index) => (
                     <NavLink to={item.path} key={index} className="link" activeClassName="active">
