@@ -4,37 +4,48 @@ import NavBar from '../Utils/NavBar';
 import '../Utils/NavBar.css';
 import NavBarData from '../Utils/NavBarData';
 import './Competition.css';
+import { FaSearch } from 'react-icons/fa';
 
 const SearchBar = () => {
-  return (
-    <div className="search-bar">
-      <input type="text" placeholder="Search..." />
-    </div>
-  );
+    return (
+        <div className="search-bar">
+            <input type="text" placeholder="Search" />
+            <div className="search-icon">
+                <FaSearch />
+            </div>
+        </div>
+    );
 };
 
 const Competition = ({ children }) => {
     return (
-      <div>
-        <NavBar data={NavBarData} />
-        <div className="search-bar-container">
-          <SearchBar />
+        <div className="comp-container">
+            <NavBar data={NavBarData} />
+
+            {/* Search bar */}
+            <div className="search-bar-container">
+                <SearchBar />
+            </div>
+
+            {/* Sign in and Register buttons */}
+            <div className="comp-auth-buttons-container">
+                <Link to="/signin">
+                    <button className="comp-login-button">Sign In</button>
+                </Link>
+                <Link to="/signup">
+                    <button className="comp-signup-button">Register</button>
+                </Link>
+            </div>
+
+            {/* Competition Info */}
+            <div className="comp-info">
+                <h1>Competition</h1>
+                <p className="comp-paragraph">Grow your data science skills by competing in our exciting competitions. Find help in the documentation or learn about Community Competitions.</p>
+            </div>
+
+            <main className="comp-main">{children}</main>
         </div>
-        <div className="comp-info">
-          <h1>Competition</h1>
-        </div>
-        <div className="comp-auth-buttons-container">
-          <Link to="/signin">
-            <button className="comp-login-button">Sign In</button>
-          </Link>
-          <Link to="/signup">
-            <button className="comp-signup-button">Register</button>
-          </Link>
-        </div>
-        <main>{children}</main>
-      </div>
     );
-  };
-  
+};
 
 export default Competition;
