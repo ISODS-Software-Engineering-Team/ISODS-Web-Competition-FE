@@ -1,41 +1,83 @@
-.comp-header {
+.comp-auth-buttons-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-  }
-  
-  .comp-auth-buttons-container {
+    justify-content: flex-end;
+    z-index: 9999;
     position: absolute;
-    top: 10px;
-    right: 20px;
+    top: 1rem;
+    right: 1rem;
   }
   
   .comp-login-button {
     margin-right: 10px;
   }
   
-  .comp-login-button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #ff8400;
-    cursor: pointer;
-  }
-  
+  .comp-login-button,
   .comp-signup-button {
     padding: 20px;
     border: none;
     border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .comp-login-button {
+    background-color: #fff;
+    color: #ff8400;
+  }
+  
+  .comp-signup-button {
     background-color: #ff7b00;
     color: #fff;
-    cursor: pointer;
   }
   
-  .comp-login-button:hover,
+  .comp-login-button:hover {
+    background-color: #e4e4e4;
+    color: #ff7b00;
+  }
+  
   .comp-signup-button:hover {
-    background-color: #aaa;
+    background-color: #da6a01;
   }
   
+  .search-bar {
+    position: absolute;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+  
+  .search-bar input[type='text'] {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 30px;
+  }
+  
+  @media only screen and (max-width: 1000px) {
+    .search-bar {
+      width: 35%;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 760px) {
+    .search-bar {
+      display: none;
+    }
+  }
+  
+  .comp-info {
+    margin-top: 0px;
+    margin-left: 10%;
+  }
+  .comp-info h1 {
+    font-size: 3rem;
+  }
+  .search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
