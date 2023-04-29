@@ -1,7 +1,7 @@
 .comp-header {
     display: flex;
     align-items: center;
-}
+  }
 
 .search-bar-container {
     position: relative;
@@ -177,11 +177,14 @@
 }
 
 .active-competition-card-image {
-    width: 300px;
-    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+
+img {
+    width: 300px;
+    height: 200px;
 }
 
 .active-competition-card-title {
@@ -204,44 +207,45 @@
     margin-top: 2rem;
     margin: 0 auto;
     /* align center horizontally */
-    width: 90%;
+    width: 80%;
     justify-items: center;
     /* align horizontally */
     align-items: center;
     /* align vertically */
-    box-shadow: 5px 5px 13px #e3e3e3, -5px -5px 13px #ffffff;
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94, 104, 121, 0.288);
     padding: 10px;
     margin-bottom: 2rem;
 
-}
+  }
 
-@media screen and (max-width: 1300px) {
+  @media screen and (max-width: 1300px) {
     .card-container {
-        grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
-}
+  }
 
-@media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1100px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media screen and (max-width: 768px) {
+  }
+  
+  @media screen and (max-width: 768px) {
     .card-container {
-        grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(1, 1fr);
     }
-}
-
-.card {
+  }
+  
+  .card {
     border-radius: 10px;
     border: 1px solid rgb(199, 199, 199);
     padding: 10px;
     margin: 15px;
     max-width: 300px;
     z-index: 1;
-}
+  }
 
-.card:hover {
+  .card:hover {
     background-color: orange;
-}
+  }
