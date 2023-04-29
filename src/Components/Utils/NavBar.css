@@ -11,7 +11,7 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2; /* add a higher z-index */
+    z-index: 2; /* set a higher z-index */
 }
 
 .sidebar {
@@ -22,13 +22,12 @@
     inset 0px 0px 0px 0px #0001;
     height: 100%;
     position: fixed;
-    z-index: 1; /* add a lower z-index */
     overflow-x: hidden;
     padding-top: 20px;
     transition: width 0.3s ease-in-out;
 }
 
-/* add class "active" to move sidebar to the right */
+
 .sidebar.active {
     left: 0;
 }
