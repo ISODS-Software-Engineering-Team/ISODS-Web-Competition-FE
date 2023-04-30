@@ -298,6 +298,7 @@ img {
     margin: 15px;
     max-width: 300px;
     z-index: 1;
+    cursor: pointer;
   }
 
   .card:hover {
