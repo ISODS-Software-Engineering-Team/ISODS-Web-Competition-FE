@@ -188,7 +188,7 @@
 }
 
 img {
-    width: 300px;
+    width: 320px;
     height: 200px;
 }
 
@@ -252,5 +252,5 @@ img {
   }
 
   .card:hover {
-    background-color: orange;
+    background-color: rgb(249, 128, 0);
   }
