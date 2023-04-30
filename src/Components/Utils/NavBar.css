@@ -11,15 +11,14 @@
     top: 0;
     left: 0;
     right: 0;
-    z-index: 2; /* set a higher z-index */
 }
 
 .sidebar {
     background: #ffffff;
     box-shadow: -7px -7px 20px 0px #fff9, -4px -4px 5px 0px #fff9,
-    7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
-    inset 0px 0px 0px 0px #0001;
+        7px 7px 20px 0px #0002, 4px 4px 5px 0px #0001, inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001, inset 0px 0px 0px 0px #fff9,
+        inset 0px 0px 0px 0px #0001;
     height: 100%;
     position: fixed;
     overflow-x: hidden;
@@ -48,7 +47,7 @@
     margin-left: 50px;
 }
 
-.bars:hover > svg {
+.bars:hover>svg {
     color: rgb(255, 136, 0);
 }
 
