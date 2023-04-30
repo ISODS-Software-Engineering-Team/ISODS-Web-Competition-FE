@@ -4,21 +4,9 @@ import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import NavBarData from "./NavBarData";
 
-const NavBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
+const NavBar = ({ isOpen, setIsOpen, children }) => {
   const sidebarRef = useRef(null);
-
-  useEffect(() => {
-    const setSidebarWidth = () => {
-      if (sidebarRef.current) {
-        const sidebar = sidebarRef.current;
-        const width = isOpen ? "200px" : "70px";
-        sidebar.style.width = width;
-      }
-    };
-
-    setSidebarWidth();
-  }, [isOpen]);
+  const [sidebarWidth, setWidth] = useState("70px");
 
   const handleMouseEnter = () => {
     setIsOpen(true);
@@ -28,9 +16,21 @@ const NavBar = ({ children }) => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const setSidebarWidth = () => {
+      if (sidebarRef.current) {
+        const sidebar = sidebarRef.current;
+        const width = isOpen ? "200px" : "70px";
+        sidebar.style.width = width;
+        setWidth(width);
+      }
+    };
+
+    setSidebarWidth();
+  }, [isOpen]);
+
   return (
     <div className="navbar-container">
-      <FaBars onClick={() => setIsOpen(!isOpen)} />
       <div ref={sidebarRef} className="sidebar">
         <div className="top_section">
           <div style={{ marginLeft: "8px" }} className="bars">
@@ -64,7 +64,7 @@ const NavBar = ({ children }) => {
           </NavLink>
         ))}
       </div>
-      <main>{children}</main>
+      <main style={{ width: `calc(100% - ${sidebarWidth})` }}>{children}</main>
     </div>
   );
 };

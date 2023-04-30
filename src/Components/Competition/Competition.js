@@ -31,24 +31,26 @@ const CompetitionSearch = () => {
 
 const CompetitionCard = ({ competition }) => {
     return (
-        <div className="card">
-            <img src={competition.imageUrl} alt={competition.name} style={{ maxWidth: "100%" }} />
-            <h3>{competition.name}</h3>
-            <p>{competition.info}</p>
-            <Link to={`/competitions/${competition.id}`} className="card-button">
-                View Details
-            </Link>
-        </div>
+      <div className="card">
+        <img src={competition.imageUrl} alt={competition.name} style={{ maxWidth: "100%" }} />
+        <h3>{competition.name}</h3>
+        <p>{competition.info}</p>
+        <Link to={`/competitions/${competition.id}`} className="card-button">
+          View Details
+        </Link>
+      </div>
     );
-};
-
+  };
+  
 
 const Competition = ({ children }) => {
+    const [isOpen, setIsOpen] = React.useState(false);
+    
     return (
         <div className="comp-container">
-            <NavBar data={NavBarData} />
+            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} data={NavBarData} />
 
-            <div className="comp-header">
+            <div className="comp-header" style={{paddingLeft: isOpen ? "200px" : "70px"}}>
                 {/* Search bar */}
                 <div className="search-bar-container">
                     <SearchBar />
@@ -65,7 +67,7 @@ const Competition = ({ children }) => {
             </div>
 
             {/* Competition Info */}
-            <div className="comp-info">
+            <div className="comp-info" style={{paddingLeft: isOpen ? "200px" : "70px"}}>
                 <div className="comp-info-buttons">
                     <h1>Competitions</h1>
                 </div>
@@ -79,18 +81,15 @@ const Competition = ({ children }) => {
             <CompetitionSearch />
 
             {/* Competition Cards */}
-            <div className="card-container">
+            <div className="card-container" style={{paddingLeft: isOpen ? "200px" : "70px"}}>
                 {CompetitionData.slice(0, 9).map((competition) => (
                     <CompetitionCard key={competition.id} competition={competition} />
                 ))}
             </div>
 
-            <main className="comp-main">{children}</main>
+            <main className="comp-main" style={{paddingLeft: isOpen ? "200px" : "70px"}}>{children}</main>
         </div>
     );
 };
 
 export default Competition;
-
-
-
