@@ -61,16 +61,6 @@ const NavBar = ({ isOpen, setIsOpen, children }) => {
               setIsOpen(!isOpen)
             }}/>
           </div>
-          {/* <h1
-            style={{
-              display: isOpen ? "block" : "none",
-              color: "orange",
-              paddingLeft: "20px",
-            }}
-            className="logo"
-          >
-            ISODS
-          </h1> */}
         </div>
         {NavBarData.map((item, index) => (
           <NavLink
