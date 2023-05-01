@@ -57,6 +57,7 @@ const Competition = ({ children }) => {
                 <div className="search-bar-container">
                     <SearchBar />
                 </div>
+                
                 {/* SignIn and Register buttons */}
                 <div className="comp-auth-buttons-container">
                     <Link to="/signin">
