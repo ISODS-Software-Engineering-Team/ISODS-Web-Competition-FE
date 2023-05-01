@@ -1,0 +1,305 @@
+.comp-header {
+    display: flex;
+    align-items: center;
+  }
+
+.search-bar-container {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    margin-right: auto;
+    margin-left: 20px;
+}
+
+.search-bar {
+    display: flex;
+    width: 80%;
+    margin: 2rem auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.search-icon-1 {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-icon-1:hover {
+    color: #333;
+}
+
+.search-bar input[type='text'] {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1100px) {
+    .search-bar {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    .search-bar {
+        display: none;
+    }
+}
+
+.comp-auth-buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    z-index: 1;
+}
+
+.comp-auth-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.comp-login-button,
+.comp-signup-button {
+    padding: 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.comp-login-button {
+    background-color: #fff;
+    color: #ff8400;
+}
+
+.comp-signup-button {
+    background-color: #ff7b00;
+    color: #fff;
+}
+
+.comp-login-button:hover {
+    background-color: #e4e4e4;
+    color: #ff7b00;
+}
+
+.comp-signup-button:hover {
+    background-color: #da6a01;
+}
+
+.comp-auth-buttons {
+    margin-left: auto;
+}
+
+.comp-info {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.comp-paragraph {
+    max-width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.comp-info {
+    margin-top: 1rem;
+}
+
+.competition-search {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 65%;
+    margin-bottom: 1rem;
+}
+
+.competition-search input[type='text'] {
+    padding: 10px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 30px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.competition-search input[type='text']::placeholder {
+    color: #b8b8b8;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+@media only screen and (max-width: 1300px) {
+    .competition-search {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    .competition-search {
+        width: 35%;
+    }
+}
+
+.search-icon-2 {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.search-icon-2:hover {
+    color: #333;
+}
+
+@media only screen and (max-width: 1100px) {
+    .search-icon-2 {
+        display: none;
+    }
+}
+
+.create-competition-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 1rem;
+  }
+  
+  .create-competition-button {
+    background-color: #000000;
+    border: none;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  
+  .create-competition-button:hover {
+    background-color: #363636;
+  }
+  
+
+.active-competition-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-content: center;
+}
+
+.active-competition-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.active-competition-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.active-competition-card-image {
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    width: 320px;
+    height: 200px;
+}
+
+.active-competition-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.active-competition-card-info {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+    margin-top: 2rem;
+    margin: 0 auto;
+    /* align center horizontally */
+    justify-items: center;
+    /* align horizontally */
+    align-items: center;
+    /* align vertically */
+    box-shadow: -3px -3px 7px #ffffff73,
+    2px 2px 5px rgba(94, 104, 121, 0.288);
+    padding: 10px;
+    margin-bottom: 2rem;
+
+  }
+
+  @media screen and (max-width: 1300px) {
+    .card-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 1100px) {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  .card {
+    border-radius: 10px;
+    border: 1px solid rgb(199, 199, 199);
+    padding: 10px;
+    margin: 15px;
+    max-width: 300px;
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .card:hover {
+    background-color: rgb(249, 128, 0);
+  }

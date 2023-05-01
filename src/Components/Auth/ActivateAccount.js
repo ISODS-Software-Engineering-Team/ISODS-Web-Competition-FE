@@ -1,6 +1,5 @@
 import './UserSignIn.css';
 import AuthService from '../services/Auth.server';
-import { Button, Box } from '@mui/material';
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -34,7 +33,7 @@ function ActivateAccount() {
     };
 
     return (
-        <div className='container'>
+        <div className='auth-container'>
             <div className='container-form'>
                 <img src='https://www.isods.org//images/isods_small_logo.png' alt='Profile Picture' id='profile-picture' />
                 <div className='sign-in-header'>ACTIVATE ACCOUNT</div>
